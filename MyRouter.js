@@ -7,7 +7,7 @@ function route(pathname, handle, res) {
     else {
         console.log('404 Not Found ');
         res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.write(sBody);
+        res.write(body);
         res.end();
     }
 }
