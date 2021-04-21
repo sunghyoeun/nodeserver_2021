@@ -8,4 +8,4 @@ function onRequest(req, res) {
 
 server = http.createServer(onRequest);
 server.listen(8000, 'localhost');
-console.log('Server is runnig at http://local:8000');
+console.log('Server is runnig at http://localhost:8000');
