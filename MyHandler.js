@@ -10,6 +10,7 @@ function start(res){
     body += '<div><a href="firstHtml">HTML 읽는 페이지</a></div>'
     body += '<div><a href="Handler">Handler 없이 "/page"로 매핑하는 페이지</a></div>'
     body += '<div><a href="/serverInfo">Server 정보를 표시하는 페이지</a></div>'
+    body += '<div><a href="/form">Form 입력 페이지</a></div>'
     body += '</body>'
     res.writeHead(200, { 'Content-Type': 'text/html'});
     res.write(body);
@@ -58,6 +59,16 @@ function serverInfo(res) {
     info = JSON.stringify(os.cpus());
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(info);
+    res.end();
+}
+
+function nickname(res, postData) {
+    let body = '<head><meta charset = "UTF-8"/></head>'
+    body += '<body><div>안녕하세요. ' + queryString.parse(postData).myName + '님.</div>'
+    body += '<div>당신의 별명은 ' + queryString.parse(postData).myNick + '입니다.</div>';
+    body += '</body>'
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(body);
     res.end();
 }
 
