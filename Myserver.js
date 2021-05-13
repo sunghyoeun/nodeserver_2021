@@ -16,10 +16,9 @@ function start(route, handle) {
             postData += chunk;
             console.log('chunk: '+ chunk);
         });
-        req.addListener('end', function(){
-            route(pathname, handle, res);
-        })
-        
+        req.addListener('end', function () {
+            route(pathname, handle, res, postData);
+          });
     }
     
     server = http.createServer(onRequest);
