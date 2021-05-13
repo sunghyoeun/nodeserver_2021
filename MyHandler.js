@@ -1,5 +1,6 @@
 const fs = require('fs');
 const os = require('os');
+const querystring = require('querystring');
 
 function start(res){
     let body = '<head><meta charset = "UTF-8"/></head>'
@@ -11,6 +12,7 @@ function start(res){
     body += '<div><a href="Handler">Handler 없이 "/page"로 매핑하는 페이지</a></div>'
     body += '<div><a href="/serverInfo">Server 정보를 표시하는 페이지</a></div>'
     body += '<div><a href="/form">Form 입력 페이지</a></div>'
+    body += '<div><a href="/nickname">Form으로 넘어온 이름과 별명 표시 페이지</a></div>'
     body += '</body>'
     res.writeHead(200, { 'Content-Type': 'text/html'});
     res.write(body);
@@ -79,3 +81,4 @@ exports.randomWait = randomWait;
 exports.firstHtml = firstHtml;
 exports.htmlFile = htmlFile;
 exports.serverInfo = serverInfo;
+exports.nickname = nickname;
